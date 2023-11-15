@@ -1,2 +1,3 @@
 # Terminal commands
-Written som common commands to use in terminal
+Some common commands for terminal use.
+🍭

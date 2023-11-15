@@ -1,0 +1,93 @@
+Mocking (Martin Fowler)
+Börja med att bygga ett konsollinterface innan du börjar bygga grafiskt interface
+-> Gör tester om du trycker på 1 så händer detta
+
+Test doubles
+Dummy	-Enkla objekt som aldrig används, men måste finnas
+
+Fake	-Fungerande objekt som ofta använder förenklade lösningar
+
+Stubs	-Förbestämda svar, oftast bara för just de anrop som testet använder
+
+
+Spies	-Stubs som även sparar information om hur de anropats
+
+Mocks	-Objekt som förprogrammerats med vilken typ av anrop som förväntas,
+		vilka svar som ska ges, kan kasta exceptions, samt kan verifieras att de 
+		fått rätt anrop.
+
+State verification -- t. ex. Accunt.Balance == 20
+	- inga test doubles
+	- Dummies
+	- Fakes
+	- Stubs
+ 
+Behavior verification - t. ex. verifiera att Account.Withdraw(50) anropats
+	- Mocks
+	- Spies 
+ 
+Isolerade och Sociala tester (Sociable tests)
+Sociable tests
+	Often the tested unit relies on other units to fulfill its behaviour
+	Använder riktiga beroenden
+	Kommer faila om det är en bugg i beroendet
+	Antar att resterande kod fungerar, därför behövs den inte bytas ut
+	När någonting går sönder blir det mer felsökning
+Solitary Tests
+	Some unit testers prefer to isolate the tested unit
+	Görs på varje enhet i fullständig isolering
+	Ofta med hjälp av test doubles
+	
+Klassisk TDD
+	Föredrar sociala test, dvs riktiga objekt
+	Använder test-doubles där nödvändigt
+	Typ av test-double är oviktigt, ju enklare desto bättre
+	
+.Mockist TDD
+	Föredrar solidära test, dvs mock objekt
+	Använder test-doubles för allt
+	Oftast används då mocks
+	aka London-style
+	
+Klassisk vs Mockist
+	- Smaksak vad du väljer den klassiska har lite fallgropar, kan vara lite enklare att lära sig
+	- Den klassiska stilen kan vara lite enklare än stilen med mockist
+	- Går ofta hand i hand med arbetssättet
+		- Mockist: Utifrån och in (Börja med UI och mocka det som behövs)
+		- Klassisk: Börja med domän-modeller och logik, bygg sedan utåt.
+	Påverkar designval
+	
+Moq
+Ett bibliotek/ramverk i VS för att hjälpa oss att skapa bra Mocks.
+Stöd för LINQ och lambda expressions, vilket ger oss
+	- type-safety
+	- lätt att refaktorera
+	- elegant kod
+Open source
+Smidigt och snyggt stöd av async
+Bra stöd för både klassisk och mockist stilen
+Du behöver inte ha koll på alla teoretiska skillnader av olika test doubles
+	
+Skapa mocks med moq
+Vi skapar lätt en mock av ett objekt genom att skapa ett objekt av Mock med typen av vårt objekt
+Vi kan sen konfigurera hur det 00ska bete sig.
+Vi kan sen komma åt vårt objekt med mock.Object
+
+Vi kan konfigurera
+	- Async-metoder med .Result
+	- Lazy evaluation av return mha en anonym funktion
+	- Metoder att kasta exceptions
+	
+Matcha argument
+	- Ofta vet vi inte exakt vad input kommer vara till en funktion, då kan vi använd It.IsAny()
+	- Eller när det gäller nummer kan det ibland vara bra att använda It.IsInRange<T>(min, max)
+	- Vi kan använd It.IsRegex("pattern") för att matcha med regex
+
+Verifikation
+	- Vi kan verifera att en metod anropats
+		- Vi kan specifiera hur många gånger // Never - AtLeastOnce - ExactlyOnce
+		- Vi kan deviniera ett felmeddelande
+	- Vi kan verifiera att en property satts eller lästs
+		- När vi verifierar datt den satts kan vi även kontrollera värdet
+	- Vi kan verifiera att inga andra värden satts
+	

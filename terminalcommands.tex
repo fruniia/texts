@@ -1,0 +1,45 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[cm, empty]{fullpage}
+\title{Terminal commands written in \LaTeX}
+\author{Anna Nilsson-Niia}
+\begin{document}
+\maketitle
+\section{Add new console, classlibrary, xunit, solution}
+\begin{verbatim}
+    dotnet new console
+    dotnet new classlib
+    dotnet new xunit
+\end{verbatim}
+\section{Add i.e. solution with name}
+\begin{verbatim}
+    dotnet new sln --name mySolution
+\end{verbatim}
+\section{List all files in solution}
+\begin{verbatim}
+    dotnet sln list
+\end{verbatim}
+\section{Adds one or more project to the solution file}
+\begin{verbatim}
+    dotnet sln mySolution.sln add projectpath/myProj
+\end{verbatim}
+\section{Initiate git}
+\begin{verbatim}
+    git init
+\end{verbatim}
+\section{Create a new repository on the command line}
+\begin{verbatim}
+    echo "# mygitrepository" >> README.md
+    git init
+    git add README.md
+    git commit -m "first commit"
+    git branch -M main
+    git remote add origin git@github.com:fruniia/mygitrepository.git
+    git push -u origin main
+\end{verbatim}
+\section{Push an existing repository from the command line}
+\begin{verbatim}
+    git remote add origin git@github.com:fruniia/mygitrepository.git
+    git branch -M main
+    git push -u origin main
+\end{verbatim}
+\end{document}

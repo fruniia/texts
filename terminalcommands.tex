@@ -4,29 +4,36 @@
 \author{Anna Nilsson-Niia}
 \begin{document}
 \maketitle
-\section{Add new console, classlibrary, xunit, solution}
+\section*{Add new console, classlibrary, xunit, solution}
 \begin{verbatim}
     dotnet new console
     dotnet new classlib
     dotnet new xunit
+    dotnet new sln
 \end{verbatim}
-\section{Add i.e. solution with name}
+\section*{Add i.e. solution with name}
 \begin{verbatim}
     dotnet new sln --name mySolution
 \end{verbatim}
-\section{List all files in solution}
+\section*{List all files in solution}
 \begin{verbatim}
     dotnet sln list
 \end{verbatim}
-\section{Adds one or more project to the solution file}
+\section*{Adds one or more project to the solution file}
 \begin{verbatim}
     dotnet sln mySolution.sln add projectpath/myProj
 \end{verbatim}
-\section{Initiate git}
+\section*{Read file, listen, create file}
+\begin{verbatim}
+    cat 
+    echo 
+    touch
+\end{verbatim}
+\section*{Create new .git repository}
 \begin{verbatim}
     git init
 \end{verbatim}
-\section{Create a new repository on the command line}
+\section*{Create a new repository on the command line}
 \begin{verbatim}
     echo "# mygitrepository" >> README.md
     git init
@@ -36,10 +43,35 @@
     git remote add origin git@github.com:fruniia/mygitrepository.git
     git push -u origin main
 \end{verbatim}
-\section{Push an existing repository from the command line}
+\section*{Push an existing repository from the command line}
 \begin{verbatim}
     git remote add origin git@github.com:fruniia/mygitrepository.git
     git branch -M main
     git push -u origin main
+\end{verbatim}
+\newpage
+\section*{Commands in git}
+\begin{verbatim}
+    status          show status of working directory
+        -s          short version
+    add             adds file(s) to the staging area
+    commit          adds a commit to git
+        -m          message
+    log             shows previous commits in branch
+        --all
+        --decorate
+        --oneline
+        --graph
+    show            take a closer look at commit
+    diff            shows changes between your working directory and index/staging area
+\end{verbatim}
+\section*{Branching in git}
+\begin{verbatim}
+    branch              show and create branches
+     -d <branch name>   delete branch          
+    checkout            move HEAD to another branch or commit
+     -b <branch name>   create new branch and change to that branch
+                        does not change working directory
+    merge               bring changes from one branch into another
 \end{verbatim}
 \end{document}

@@ -82,4 +82,16 @@
     pull                get changes from remote
     fetch               update local info about remote
 \end{verbatim}
+\section*{Undo in git}
+When working in a shared repo it is important that the commit history doesn't change, instead
+of removing the previous commit add the undos into a new commit.
+\begin{verbatim}
+    checkout            get a commit, undo all changes in workspace
+    revert              create a new commit which undos all changes
+    reset               remove files from staging or remove a LOCAL commit
+        --soft
+        --mixed
+        --hard
+    commit --amend      replaces the last commit with your new, improved commit
+\end{verbatim}
 \end{document}

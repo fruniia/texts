@@ -52,18 +52,27 @@
 \newpage
 \section*{Commands in git}
 \begin{verbatim}
-    status          show status of working directory
+    git status          show status of working directory
         -s          short version
-    add             adds file(s) to the staging area
-    commit          adds a commit to git
+    git add             adds file(s) to the staging area
+    git commit          adds a commit to git
         -m          message
-    log             shows previous commits in branch
+    git log             shows previous commits in branch
         --all
         --decorate
         --oneline
         --graph
-    show            take a closer look at commit
-    diff            shows changes between your working directory and index/staging area
+    git show            take a closer look at commit
+    git diff            shows changes between your working directory and index/staging area
+\end{verbatim}
+\section*{Help with a command}
+\begin{verbatim}
+    --h prefix works with most commands and will print the help text for said command
+        e.g. diff --h   will print instructions for diff command 
+                        (not to be confused with git diff)
+    Notable exception:
+        echo --h    will not print help on the echo command, instead try
+        /bin/echo --help    
 \end{verbatim}
 \section*{Branching in git}
 \begin{verbatim}
